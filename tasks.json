@@ -1,0 +1,40 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Start Full Stack App",
+            "type": "shell",
+            "command": "npm run dev",
+            "isBackground": true,
+            "problemMatcher": {
+                "owner": "custom",
+                "pattern": {
+                    "regexp": "^$"
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": ".*",
+                    "endsPattern": ".*Local:.*http://localhost:5173.*"
+                }
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Start Frontend Only",
+            "type": "shell",
+            "command": "npm --prefix frontend run dev",
+            "isBackground": true,
+            "problemMatcher": []
+        },
+        {
+            "label": "Start Backend Only",
+            "type": "shell",
+            "command": "python -m uvicorn app.main:app --reload --port 8000 --app-dir backend",
+            "isBackground": true,
+            "problemMatcher": []
+        }
+    ]
+}
